@@ -8,8 +8,7 @@ Durante o projeto foram abordados os seguintes tópicos:
 * Padrão de Projeto MVC
 * Criação de modelo de dados para o mapeamento de entidades em bancos de dados
 * Utilização do Thymeleaf
-* Desenvolvimento de operações de gerenciamento de usuários (Cadastro, leitura, atualização e remoção de pessoas de um
-  sistema).
+* Desenvolvimento de operações de gerenciamento de despesas (Cadastro, leitura, atualização e remoção).
 
 O que é o Thymeleaf? 
 O Thymeleaf é um mecanismo de modelo Java XML / XHTML / HTML5 que pode funcionar em ambientes web e
