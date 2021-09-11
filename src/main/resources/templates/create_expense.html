@@ -22,7 +22,7 @@
 		<!-- Navbar links -->
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="@{/expenses}">Expeses List</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/expenses}">Expenses List</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -42,7 +42,7 @@
 						</div>
 
 						<div class="form-group">
-							<label>Expense Price</label> <input type="text"
+							<label>Expense Price</label> <input type="number" step = 0.01
 								name="expensePrice" th:field="*{expensePrice}" class="form-control"
 								placeholder="Enter with Expense Price" />
 						</div>

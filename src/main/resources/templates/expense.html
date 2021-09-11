@@ -44,9 +44,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="expense: ${expenses}">
-					<td th:text="${expense.expenseName}"></td>
-					<td th:text="${expense.expensePrice}"></td>
+				<tr th:each="expens: ${expense}">
+					<td th:text="${expens.expenseName}"></td>
+					<td th:text="${#numbers.formatDecimal(expens.expensePrice, 1, 2)}"></td>
 				</tr>
 			</tbody>
 		</table>

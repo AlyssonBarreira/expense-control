@@ -19,5 +19,12 @@ public class ExpenseServiceImpl implements ExpenseService{
 	public List<Expenses> getAllExpenses() {
 		return expenseRepository.findAll();
 	}
+	
+	@Override
+	public Expenses saveExpense(Expenses expense) {
+		return expenseRepository.save(expense);
+	}
+	
+	
 
 }
