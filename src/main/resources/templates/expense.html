@@ -47,6 +47,10 @@
 				<tr th:each="expens: ${expense}">
 					<td th:text="${expens.expenseName}"></td>
 					<td th:text="${#numbers.formatDecimal(expens.expensePrice, 1, 2)}"></td>
+					<td>
+						<a th:href="@{/expenses/edit/{id}(id = ${expens.id})}" class="btn btn-primary">Update</a>
+						<a th:href="@{/expenses/{id}(id = ${expens.id})}" class="btn btn-danger">Delete</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>

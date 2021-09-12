@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.alysson.expensecontrol.entity.Expenses;
@@ -34,9 +35,34 @@ public class ExpenseController {
 		return "create_expense";
 	}
 	
+	@GetMapping("/expenses/edit/{id}")
+	public String editExpenseForm(@PathVariable Long id, Model model) {
+		model.addAttribute("expense", expenseService.getExpenseById(id));
+		return "edit_expense";
+	}
+	
 	@PostMapping("/expenses")
 	public String saveExpense(@ModelAttribute("expense") Expenses expense) {
 		expenseService.saveExpense(expense);
+		return "redirect:/expenses";
+	}
+	
+	@PostMapping("/expenses/{id}")
+	public String updateExpense(@PathVariable Long id, @ModelAttribute("expense") Expenses expense, Model model) {
+		Expenses existExpense = expenseService.getExpenseById(id);
+		
+		existExpense.setId(expense.getId());
+		existExpense.setExpenseName(expense.getExpenseName());
+		existExpense.setExpensePrice(expense.getExpensePrice());
+		
+		expenseService.saveExpense(existExpense);
+		
+		return "redirect:/expenses";
+	}
+	
+	@GetMapping("/expenses/{id}")
+	public String deleteExpenseById(@PathVariable Long id) {
+		expenseService.deleteExpenseById(id);
 		return "redirect:/expenses";
 	}
 	
